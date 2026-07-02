@@ -12,6 +12,7 @@ import com.intellij.execution.runners.AsyncProgramRunner
 import com.intellij.execution.runners.ExecutionEnvironment
 import com.intellij.execution.ui.RunContentDescriptor
 import com.intellij.openapi.application.EDT
+import com.intellij.openapi.application.UI
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.project.Project
@@ -138,7 +139,7 @@ suspend fun bootstrapDebugSession(
 
   val (session, runContentDescriptor) =
     @Suppress("UnstableApiUsage")
-    run {
+    withContext(Dispatchers.EDT) {
       val result = debuggerManager.newSessionBuilder(starter)
         .environment(environment)
         .startSession()

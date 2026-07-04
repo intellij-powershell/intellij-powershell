@@ -26,5 +26,5 @@ To update the token used for publishing the plugin, follow these steps.
 4. Go to [the GitHub repository's Secrets page][github.secrets].
 5. Update the `JETBRAINS_MARKETPLACE_TOKEN` with the new value.
 
-[github.secrets]: https://github.com/ant-druha/intellij-powershell/settings/secrets/actions
+[github.secrets]: https://github.com/intellij-powershell/intellij-powershell/settings/secrets/actions
 [marketplace.tokens]: https://plugins.jetbrains.com/author/me/tokens

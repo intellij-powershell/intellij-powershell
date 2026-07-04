@@ -16,8 +16,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - Update PowerShellEditorServices from v4.2.0 to [v4.3.0](https://github.com/PowerShell/PowerShellEditorServices/releases/tag/v4.3.0).
 
 ### Fixed
-- [#323: Configurations with PowerShell "Before task" don't work in Debug](https://github.com/ant-druha/intellij-powershell/issues/323).
-- [#352](https://github.com/ant-druha/intellij-powershell/issues/352): fix an assertion thrown from settings in IntelliJ IDEA 2025.1. Thanks to @Fantoom for the contribution.
+- [#323: Configurations with PowerShell "Before task" don't work in Debug](https://github.com/intellij-powershell/intellij-powershell/issues/323).
+- [#352](https://github.com/intellij-powershell/intellij-powershell/issues/352): fix an assertion thrown from settings in IntelliJ IDEA 2025.1. Thanks to @Fantoom for the contribution.
 
 ## [2.9.0] - 2025-02-07
 ### Changed
@@ -48,28 +48,28 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [2.6.1] - 2024-03-28
 ### Fixed
-- [#257](https://github.com/ant-druha/intellij-powershell/pull/257): pass `-NoProfile` to PowerShell when detecting its version, to determine the version faster and avoid possible problems caused by shell customizations
+- [#257](https://github.com/intellij-powershell/intellij-powershell/pull/257): pass `-NoProfile` to PowerShell when detecting its version, to determine the version faster and avoid possible problems caused by shell customizations
 
   Thanks to @En3Tho for the contribution.
-- [#259](https://github.com/ant-druha/intellij-powershell/pull/259): additionally, pass `-NonInteractive` argument
+- [#259](https://github.com/intellij-powershell/intellij-powershell/pull/259): additionally, pass `-NonInteractive` argument
 
 ## [2.6.0] - 2024-03-24
 ### Changed
 - **Requirement update!** If you set the plugin to use PowerShell (aka PowerShell Core, as opposed to Windows PowerShell), then PowerShell 7.2.11 is the minimal supported version
 
   The requirements related to Windows PowerShell version are not changed.
-- [#22](https://github.com/ant-druha/intellij-powershell/issues/22): the default working directory for a newly created **PowerShell** run configuration is now the script's parent directory
+- [#22](https://github.com/intellij-powershell/intellij-powershell/issues/22): the default working directory for a newly created **PowerShell** run configuration is now the script's parent directory
 
   Configurations created by previous versions of the plugin are unchanged.
-- [#176: Migrate to PowerShell Core by default](https://github.com/ant-druha/intellij-powershell/issues/176)
+- [#176: Migrate to PowerShell Core by default](https://github.com/intellij-powershell/intellij-powershell/issues/176)
 
   If available on the target system, the modern PowerShell will be used be default, if available. Note that only new plugin installations will be affected, due to how we store the plugin settings. If the plugin is already installed, then it will use the previously discovered PowerShell instance.
 
   This is a Windows-only change, because only on Windows there are two PowerShell versions that may coexist.
-- [#229](https://github.com/ant-druha/intellij-powershell/issues/229): the **PowerShell** run configuration will now save all the files before executing
+- [#229](https://github.com/intellij-powershell/intellij-powershell/issues/229): the **PowerShell** run configuration will now save all the files before executing
 
   This fixes the cases when the started configuration wasn't using the latest version of an edited script file.
-- [#51: Update PowerShellEditorServices](https://github.com/ant-druha/intellij-powershell/issues/51) to v3.18.1
+- [#51: Update PowerShellEditorServices](https://github.com/intellij-powershell/intellij-powershell/issues/51) to v3.18.1
 - PSScriptAnalyzer has been updated to the latest v1.22.0
 
 ### Removed
@@ -77,13 +77,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [2.5.0] - 2024-03-12
 ### Fixed
-- [#67](https://github.com/ant-druha/intellij-powershell/issues/67): An attribute block before function's `param` could lead to incorrect indentation
-- [#102](https://github.com/ant-druha/intellij-powershell/issues/102): Formatter breaking the code around unary operators such as `-Not` and equal signs in command-line arguments
-- [#183: Redundant multi line comment closing sequence added when user adds newline](https://github.com/ant-druha/intellij-powershell/issues/183)
-- [#138: Run configuration template doesn't work](https://github.com/ant-druha/intellij-powershell/issues/138)
+- [#67](https://github.com/intellij-powershell/intellij-powershell/issues/67): An attribute block before function's `param` could lead to incorrect indentation
+- [#102](https://github.com/intellij-powershell/intellij-powershell/issues/102): Formatter breaking the code around unary operators such as `-Not` and equal signs in command-line arguments
+- [#183: Redundant multi line comment closing sequence added when user adds newline](https://github.com/intellij-powershell/intellij-powershell/issues/183)
+- [#138: Run configuration template doesn't work](https://github.com/intellij-powershell/intellij-powershell/issues/138)
 
 ### Added
-- [#184](https://github.com/ant-druha/intellij-powershell/issues/184): Support the null-coalescing operator
+- [#184](https://github.com/intellij-powershell/intellij-powershell/issues/184): Support the null-coalescing operator
 
 ### Changed
 - [LSP4J](https://github.com/eclipse-lsp4j/lsp4j) library has been updated to v0.3.1
@@ -96,7 +96,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
   We do not expect any changes, but they may happen, so please report any cases of suspicious plugin behavior.
 
 ### Fixed
-- [#79: Can't detect PowerShell version on Linux](https://github.com/ant-druha/intellij-powershell/issues/79)
+- [#79: Can't detect PowerShell version on Linux](https://github.com/intellij-powershell/intellij-powershell/issues/79)
 
   Thanks to @8ru73u5 for investigation of the issue.
 
@@ -105,15 +105,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
   This should save some IDE responsibility in rare cases when it could be a problem.
 - Increased timeout on connecting to the language server; should fix issues on slower computers
-- [#42: The run configuration now uses terminal encoding](https://github.com/ant-druha/intellij-powershell/issues/42) (UTF-8 by default)
-- [#17: When the username has a space, the plugin fails to initialize](https://github.com/ant-druha/intellij-powershell/issues/17)
+- [#42: The run configuration now uses terminal encoding](https://github.com/intellij-powershell/intellij-powershell/issues/42) (UTF-8 by default)
+- [#17: When the username has a space, the plugin fails to initialize](https://github.com/intellij-powershell/intellij-powershell/issues/17)
 
 ## [2.3.1] - 2023-12-30
 ### Fixed
-- [#172](https://github.com/ant-druha/intellij-powershell/issues/172): Console output forcibly wraps output to 80 characters
-- [#160](https://github.com/ant-druha/intellij-powershell/issues/160): the `exit` keyword is now allowed in more positions in the parser
-- [#166](https://github.com/ant-druha/intellij-powershell/issues/166): "Slow operations are prohibited on EDT" report about disk IO on run configuration startup
-- [#154](https://github.com/ant-druha/intellij-powershell/issues/154): Input not properly processed in the run configuration
+- [#172](https://github.com/intellij-powershell/intellij-powershell/issues/172): Console output forcibly wraps output to 80 characters
+- [#160](https://github.com/intellij-powershell/intellij-powershell/issues/160): the `exit` keyword is now allowed in more positions in the parser
+- [#166](https://github.com/intellij-powershell/intellij-powershell/issues/166): "Slow operations are prohibited on EDT" report about disk IO on run configuration startup
+- [#154](https://github.com/intellij-powershell/intellij-powershell/issues/154): Input not properly processed in the run configuration
 ### Changed
 - The **PowerShell** run configuration no longer ignores certain kinds of internal exceptions; they will be properly reported
 
@@ -122,38 +122,38 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - The PowerShellEditorServices connection code has been refactored to not cause any UI freezes: everything was moved to background and rewritten to use non-blocking IO as much as possible
 
 ### Fixed
-- [#155](https://github.com/ant-druha/intellij-powershell/issues/155): cannot start PowerShellEditorServices under the default PowerShell 5 execution policy, `Restricted`
-- [#104](https://github.com/ant-druha/intellij-powershell/issues/104) (fixed partially): use less restricting flags when opening pipe connections to PowerShellEditorServices
+- [#155](https://github.com/intellij-powershell/intellij-powershell/issues/155): cannot start PowerShellEditorServices under the default PowerShell 5 execution policy, `Restricted`
+- [#104](https://github.com/intellij-powershell/intellij-powershell/issues/104) (fixed partially): use less restricting flags when opening pipe connections to PowerShellEditorServices
 
 ### Added
-- [#144](https://github.com/ant-druha/intellij-powershell/issues/144): terminate the language server processes when exiting the IDE (even if the IDE was terminated abnormally)
+- [#144](https://github.com/intellij-powershell/intellij-powershell/issues/144): terminate the language server processes when exiting the IDE (even if the IDE was terminated abnormally)
 
 ## [2.2.0] - 2023-10-01
 ### Changed
 - Cleaned up a lot of deprecated API usages and warnings (by @VladRassokhin)
-- [#148](https://github.com/ant-druha/intellij-powershell/issues/148): drop Gson and Guava dependencies from the plugin
-- [#88](https://github.com/ant-druha/intellij-powershell/issues/88): fix UI freezes caused by the plugin and migrate all the LSP communication to background threads
+- [#148](https://github.com/intellij-powershell/intellij-powershell/issues/148): drop Gson and Guava dependencies from the plugin
+- [#88](https://github.com/intellij-powershell/intellij-powershell/issues/88): fix UI freezes caused by the plugin and migrate all the LSP communication to background threads
 
 ### Added
-- [#145](https://github.com/ant-druha/intellij-powershell/pull/145): log PowerShellEditorServices output
+- [#145](https://github.com/intellij-powershell/intellij-powershell/pull/145): log PowerShellEditorServices output
 
 ## [2.1.0] - 2023-09-13
 ### Changed
 - The minimal supported IntelliJ version is now 2023.2
-- [#45](https://github.com/ant-druha/intellij-powershell/pull/45): Upgrade PSScriptAnalyzer from 1.17.1 to 1.21.0, thanks to @bergmeister
-- [#75](https://github.com/ant-druha/intellij-powershell/pull/75): Add indents for array elements when formatting, thanks to @VladRassokhin
-- [#90](https://github.com/ant-druha/intellij-powershell/pull/90): Allow for more user interaction with the run configuration in terminal (use PTY when available), thanks to @ZhengKeli
-- [#89](https://github.com/ant-druha/intellij-powershell/pull/89): Allow entering the executables from `PATH` in the plugin settings, thanks to @ZhengKeli
+- [#45](https://github.com/intellij-powershell/intellij-powershell/pull/45): Upgrade PSScriptAnalyzer from 1.17.1 to 1.21.0, thanks to @bergmeister
+- [#75](https://github.com/intellij-powershell/intellij-powershell/pull/75): Add indents for array elements when formatting, thanks to @VladRassokhin
+- [#90](https://github.com/intellij-powershell/intellij-powershell/pull/90): Allow for more user interaction with the run configuration in terminal (use PTY when available), thanks to @ZhengKeli
+- [#89](https://github.com/intellij-powershell/intellij-powershell/pull/89): Allow entering the executables from `PATH` in the plugin settings, thanks to @ZhengKeli
 
 ### Fixed
-- [#124](https://github.com/ant-druha/intellij-powershell/pull/124): Support placing function name on next line in function definition, thanks to @VladRassokhin
+- [#124](https://github.com/intellij-powershell/intellij-powershell/pull/124): Support placing function name on next line in function definition, thanks to @VladRassokhin
 
 ### Added
-- [#128](https://github.com/ant-druha/intellij-powershell/pull/128): The optional error reports are now sent to the Marketplace in newer IDE versions after the user approval
+- [#128](https://github.com/intellij-powershell/intellij-powershell/pull/128): The optional error reports are now sent to the Marketplace in newer IDE versions after the user approval
 
 ## [2.0.10] - 2022-02-25
 ### Fixed
-- [#76](https://github.com/ant-druha/intellij-powershell/issues/76): Exception thrown when plugin is enabled but no PowerShell is found
+- [#76](https://github.com/intellij-powershell/intellij-powershell/issues/76): Exception thrown when plugin is enabled but no PowerShell is found
 
 ## [2.0.9] - 2021-11-30
 ### Fixed
@@ -164,7 +164,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - The minimal supported IntelliJ version is now 2021.3
 
 ### Added
-- [#63](https://github.com/ant-druha/intellij-powershell/issues/63): support Path Macros for the run configuration
+- [#63](https://github.com/intellij-powershell/intellij-powershell/issues/63): support Path Macros for the run configuration
 
 ## [2.0.7] - 2021-05-25
 ### Added
@@ -177,19 +177,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - The minimal supported IntelliJ version is now 2021.1
 
 ### Fixed
-- [#40](https://github.com/ant-druha/intellij-powershell/issues/40): Run configuration keeps getting renamed when opening or editing, thanks to @Dimi1010
+- [#40](https://github.com/intellij-powershell/intellij-powershell/issues/40): Run configuration keeps getting renamed when opening or editing, thanks to @Dimi1010
 
 ## [2.0.5] - 2020-08-14
 ### Added
-- [#48](https://github.com/ant-druha/intellij-powershell/pull/48) Adds simplest code folding: for code blocks, arrays, thanks to @VladRassokhin
+- [#48](https://github.com/intellij-powershell/intellij-powershell/pull/48) Adds simplest code folding: for code blocks, arrays, thanks to @VladRassokhin
 
 ## [2.0.4] - 2019-11-22
 ### Fixed
-- [#38](https://github.com/ant-druha/intellij-powershell/issues/38): UnsupportedClassVersionError running 2019.3 under 1.8 JDK
+- [#38](https://github.com/intellij-powershell/intellij-powershell/issues/38): UnsupportedClassVersionError running 2019.3 under 1.8 JDK
 
 ## [2.0.3] - 2019-11-03
 ### Removed
-- [#33](https://github.com/ant-druha/intellij-powershell/issues/33): Get rid of implicit dependency on Java plugin
+- [#33](https://github.com/intellij-powershell/intellij-powershell/issues/33): Get rid of implicit dependency on Java plugin
 
 ### Changed
 - Platform API maintenance update
@@ -203,28 +203,28 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - The minimal supported IntelliJ version is now 2019.2 compatibility
 
 ### Fixed
-- [#24](https://github.com/ant-druha/intellij-powershell/issues/24): Parenthesized expression parsing error
+- [#24](https://github.com/intellij-powershell/intellij-powershell/issues/24): Parenthesized expression parsing error
 
 ## [2.0.1] - 2019-01-17
 ### Fixed
-- [#10](https://github.com/ant-druha/PowerShell/issues/10): Script Arguments not working as expected
-- [#12](https://github.com/ant-druha/PowerShell/issues/12): Memory (project) leak in plugin, thanks to @VladRassokhin
+- [#10](https://github.com/intellij-powershell/PowerShell/issues/10): Script Arguments not working as expected
+- [#12](https://github.com/intellij-powershell/PowerShell/issues/12): Memory (project) leak in plugin, thanks to @VladRassokhin
 
 ## [2.0.0-IJ2018.2.X] - 2018-12-07
 Same as **2.0.0**, but compatible with IntelliJ 2018.2+.
 
 ## [2.0.0] - 2018-12-07
 ### Added
-- [#9](https://github.com/ant-druha/PowerShell/issues/9): PowerShell ScriptAnalyzer support in IDE Editor
-- [#3](https://github.com/ant-druha/PowerShell/issues/3) Run/Debug configuration: ability to set working directory
+- [#9](https://github.com/intellij-powershell/PowerShell/issues/9): PowerShell ScriptAnalyzer support in IDE Editor
+- [#3](https://github.com/intellij-powershell/PowerShell/issues/3) Run/Debug configuration: ability to set working directory
 
 ### Changed
-- [#6](https://github.com/ant-druha/PowerShell/issues/6): Update PowerShell Language server version
+- [#6](https://github.com/intellij-powershell/PowerShell/issues/6): Update PowerShell Language server version
 
 ### Fixed
-- [#5](https://github.com/ant-druha/PowerShell/issues/5): Reformat code Error
-- [#2](https://github.com/ant-druha/PowerShell/issues/2): NullPointerException during normal IDE operation
-- [#1](https://github.com/ant-druha/PowerShell/issues/1): Exception on PyCharm launch
+- [#5](https://github.com/intellij-powershell/PowerShell/issues/5): Reformat code Error
+- [#2](https://github.com/intellij-powershell/PowerShell/issues/2): NullPointerException during normal IDE operation
+- [#1](https://github.com/intellij-powershell/PowerShell/issues/1): Exception on PyCharm launch
 
 ## [1.1.1] - 2018-06-21
 ### Added
@@ -289,37 +289,37 @@ Initial editor and code completion support:
 - live templates;
 - run configuration.
 
-[0.0.1]: https://github.com/ant-druha/intellij-powershell/releases/tag/v0.0.1
-[0.0.2]: https://github.com/ant-druha/intellij-powershell/compare/v0.0.1...v0.0.2
-[0.0.3]: https://github.com/ant-druha/intellij-powershell/compare/v0.0.2...v0.0.3
-[1.0.0]: https://github.com/ant-druha/intellij-powershell/compare/v0.0.3...v1.0.0
-[1.0.1]: https://github.com/ant-druha/intellij-powershell/compare/v1.0.0...v1.0.1
-[1.0.2]: https://github.com/ant-druha/intellij-powershell/compare/v1.0.1...v1.0.2
-[1.1.0]: https://github.com/ant-druha/intellij-powershell/compare/v1.0.2...v1.1.0
-[1.1.1]: https://github.com/ant-druha/intellij-powershell/compare/v1.1.0...v1.1.1
-[2.0.0]: https://github.com/ant-druha/intellij-powershell/compare/v1.1.1...v2.0.0
-[2.0.0-IJ2018.2.X]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.0...v2.0.0-IJ2018.2.X
-[2.0.1]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.0...v2.0.1
-[2.0.2]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.1...v2.0.2
-[2.0.3]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.2...v2.0.3
-[2.0.4]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.3...v2.0.4
-[2.0.5]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.4...v2.0.5
-[2.0.6]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.5...v2.0.6
-[2.0.7]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.6...v2.0.7
-[2.0.8]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.7...v2.0.8
-[2.0.9]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.8...v2.0.9
-[2.0.10]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.9...v2.0.10
-[2.1.0]: https://github.com/ant-druha/intellij-powershell/compare/v2.0.10...v2.1.0
-[2.2.0]: https://github.com/ant-druha/intellij-powershell/compare/v2.1.0...v2.2.0
-[2.3.0]: https://github.com/ant-druha/intellij-powershell/compare/v2.2.0...v2.3.0
-[2.3.1]: https://github.com/ant-druha/intellij-powershell/compare/v2.3.0...v2.3.1
-[2.4.0]: https://github.com/ant-druha/intellij-powershell/compare/v2.3.1...v2.4.0
-[2.5.0]: https://github.com/ant-druha/intellij-powershell/compare/v2.4.0...v2.5.0
-[2.6.0]: https://github.com/ant-druha/intellij-powershell/compare/v2.5.0...v2.6.0
-[2.6.1]: https://github.com/ant-druha/intellij-powershell/compare/v2.6.0...v2.6.1
-[2.7.0]: https://github.com/ant-druha/intellij-powershell/compare/v2.6.1...v2.7.0
-[2.8.0]: https://github.com/ant-druha/intellij-powershell/compare/v2.7.0...v2.8.0
-[2.9.0]: https://github.com/ant-druha/intellij-powershell/compare/v2.8.0...v2.9.0
-[2.10.0]: https://github.com/ant-druha/intellij-powershell/compare/v2.9.0...v2.10.0
-[2.11.0]: https://github.com/ant-druha/intellij-powershell/compare/v2.10.0...v2.11.0
-[Unreleased]: https://github.com/ant-druha/intellij-powershell/compare/v2.11.0...HEAD
+[0.0.1]: https://github.com/intellij-powershell/intellij-powershell/releases/tag/v0.0.1
+[0.0.2]: https://github.com/intellij-powershell/intellij-powershell/compare/v0.0.1...v0.0.2
+[0.0.3]: https://github.com/intellij-powershell/intellij-powershell/compare/v0.0.2...v0.0.3
+[1.0.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v0.0.3...v1.0.0
+[1.0.1]: https://github.com/intellij-powershell/intellij-powershell/compare/v1.0.0...v1.0.1
+[1.0.2]: https://github.com/intellij-powershell/intellij-powershell/compare/v1.0.1...v1.0.2
+[1.1.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v1.0.2...v1.1.0
+[1.1.1]: https://github.com/intellij-powershell/intellij-powershell/compare/v1.1.0...v1.1.1
+[2.0.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v1.1.1...v2.0.0
+[2.0.0-IJ2018.2.X]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.0...v2.0.0-IJ2018.2.X
+[2.0.1]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.0...v2.0.1
+[2.0.2]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.1...v2.0.2
+[2.0.3]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.2...v2.0.3
+[2.0.4]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.3...v2.0.4
+[2.0.5]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.4...v2.0.5
+[2.0.6]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.5...v2.0.6
+[2.0.7]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.6...v2.0.7
+[2.0.8]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.7...v2.0.8
+[2.0.9]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.8...v2.0.9
+[2.0.10]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.9...v2.0.10
+[2.1.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.0.10...v2.1.0
+[2.2.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.1.0...v2.2.0
+[2.3.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.2.0...v2.3.0
+[2.3.1]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.3.0...v2.3.1
+[2.4.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.3.1...v2.4.0
+[2.5.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.4.0...v2.5.0
+[2.6.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.5.0...v2.6.0
+[2.6.1]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.6.0...v2.6.1
+[2.7.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.6.1...v2.7.0
+[2.8.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.7.0...v2.8.0
+[2.9.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.8.0...v2.9.0
+[2.10.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.9.0...v2.10.0
+[2.11.0]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.10.0...v2.11.0
+[Unreleased]: https://github.com/intellij-powershell/intellij-powershell/compare/v2.11.0...HEAD

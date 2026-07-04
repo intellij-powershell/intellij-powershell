@@ -1,7 +1,7 @@
 <idea-plugin require-restart="true">
   <id>com.intellij.plugin.adernov.powershell</id>
   <name>PowerShell</name>
-  <vendor email="andrey.dernov@gmail.com" url="https://github.com/ant-druha/PowerShell/issues">andrey.dernov@gmail.com</vendor>
+  <vendor email="andrey.dernov@gmail.com" url="https://github.com/intellij-powershell/intellij-powershell/">andrey.dernov@gmail.com</vendor>
 
   <description><![CDATA[
     <p>Provides <a href="https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting">PowerShell</a> code completion and script execution support for IntelliJ IDEs.</p>

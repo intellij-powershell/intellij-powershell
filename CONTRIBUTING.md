@@ -36,7 +36,7 @@ They are automatically generated from the `.flex` and `.bnf` files on build.
 [docs.lexer]: https://plugins.jetbrains.com/docs/intellij/implementing-lexer.html
 [docs.parser]: https://plugins.jetbrains.com/docs/intellij/implementing-parser-and-psi.html
 [downloads.corretto]: https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html
-[issues.good-first-issue]: https://github.com/ant-druha/intellij-powershell/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
-[issues.help-wanted]: https://github.com/ant-druha/intellij-powershell/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22
-[issues.waiting-for-info]: https://github.com/ant-druha/intellij-powershell/issues?q=is%3Aissue+is%3Aopen+label%3Astatus%3Awaiting-for-info
+[issues.good-first-issue]: https://github.com/intellij-powershell/intellij-powershell/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
+[issues.help-wanted]: https://github.com/intellij-powershell/intellij-powershell/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22
+[issues.waiting-for-info]: https://github.com/intellij-powershell/intellij-powershell/issues?q=is%3Aissue+is%3Aopen+label%3Astatus%3Awaiting-for-info
 [plugins.grammar-kit]: https://plugins.jetbrains.com/plugin/6606-grammar-kit

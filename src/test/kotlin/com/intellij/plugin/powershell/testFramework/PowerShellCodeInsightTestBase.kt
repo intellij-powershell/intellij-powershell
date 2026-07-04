@@ -3,7 +3,6 @@ package com.intellij.plugin.powershell.testFramework
 import com.intellij.openapi.project.Project
 import com.intellij.plugin.powershell.lang.lsp.LanguageServer
 import com.intellij.testFramework.fixtures.CodeInsightTestFixture
-import com.intellij.testFramework.fixtures.IdeaProjectTestFixture
 import com.intellij.testFramework.fixtures.IdeaTestFixtureFactory
 import com.intellij.testFramework.fixtures.impl.TempDirTestFixtureImpl
 import com.intellij.testFramework.junit5.fixture.tempPathFixture
@@ -21,15 +20,14 @@ open class PowerShellCodeInsightTestBase {
   val tempPathFixture = tempPathFixture()
   lateinit var tempPath: Path
   lateinit var codeInsightTestFixture: CodeInsightTestFixture
-  lateinit var ideaProjectTestFixture: IdeaProjectTestFixture
   val project: Project get() = codeInsightTestFixture.project
 
   @BeforeEach
   fun setupFixture(testInfo: TestInfo){
     tempPath = tempPathFixture.get()
     val factory = IdeaTestFixtureFactory.getFixtureFactory()
-    val fixtureBuilder = factory.createLightFixtureBuilder(null, testInfo.displayName)
-    ideaProjectTestFixture = fixtureBuilder.getFixture()
+    val fixtureBuilder = factory.createFixtureBuilder(testInfo.displayName)
+    val ideaProjectTestFixture = fixtureBuilder.getFixture()
     codeInsightTestFixture = factory.createCodeInsightFixture(
       ideaProjectTestFixture,
       TempDirTestFixtureImpl()
@@ -42,19 +40,8 @@ open class PowerShellCodeInsightTestBase {
   fun tearDownEdt() {
     runInEdt {
       codeInsightTestFixture.tearDown()
-
-      @Suppress("DEPRECATION")
-      // TODO: It's impossible to get rid of deprecated API use here: under the hood,
-      // com.intellij.testFramework.fixtures.IdeaTestFixtureFactory.createLightFixtureBuilder will use the
-      // LightPlatformTestCase, and we have to tear it down here. See a similar example in
-      // com.intellij.junit5.JUnit5CodeInsightTest in the intellij-community.
-      com.intellij.testFramework.LightPlatformTestCase.closeAndDeleteProject()
-
-      tearDownInEdt()
     }
   }
-
-  protected open fun tearDownInEdt() {}
 
   open fun getTestDataPath(): String = tempPath.toString()
 

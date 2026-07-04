@@ -207,24 +207,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [2.0.1] - 2019-01-17
 ### Fixed
-- [#10](https://github.com/intellij-powershell/PowerShell/issues/10): Script Arguments not working as expected
-- [#12](https://github.com/intellij-powershell/PowerShell/issues/12): Memory (project) leak in plugin, thanks to @VladRassokhin
+- [#10](https://github.com/intellij-powershell/intellij-powershell/issues/10): Script Arguments not working as expected
+- [#12](https://github.com/intellij-powershell/intellij-powershell/issues/12): Memory (project) leak in plugin, thanks to @VladRassokhin
 
 ## [2.0.0-IJ2018.2.X] - 2018-12-07
 Same as **2.0.0**, but compatible with IntelliJ 2018.2+.
 
 ## [2.0.0] - 2018-12-07
 ### Added
-- [#9](https://github.com/intellij-powershell/PowerShell/issues/9): PowerShell ScriptAnalyzer support in IDE Editor
-- [#3](https://github.com/intellij-powershell/PowerShell/issues/3) Run/Debug configuration: ability to set working directory
+- [#9](https://github.com/intellij-powershell/intellij-powershell/issues/9): PowerShell ScriptAnalyzer support in IDE Editor
+- [#3](https://github.com/intellij-powershell/intellij-powershell/issues/3) Run/Debug configuration: ability to set working directory
 
 ### Changed
-- [#6](https://github.com/intellij-powershell/PowerShell/issues/6): Update PowerShell Language server version
+- [#6](https://github.com/intellij-powershell/intellij-powershell/issues/6): Update PowerShell Language server version
 
 ### Fixed
-- [#5](https://github.com/intellij-powershell/PowerShell/issues/5): Reformat code Error
-- [#2](https://github.com/intellij-powershell/PowerShell/issues/2): NullPointerException during normal IDE operation
-- [#1](https://github.com/intellij-powershell/PowerShell/issues/1): Exception on PyCharm launch
+- [#5](https://github.com/intellij-powershell/intellij-powershell/issues/5): Reformat code Error
+- [#2](https://github.com/intellij-powershell/intellij-powershell/issues/2): NullPointerException during normal IDE operation
+- [#1](https://github.com/intellij-powershell/intellij-powershell/issues/1): Exception on PyCharm launch
 
 ## [1.1.1] - 2018-06-21
 ### Added

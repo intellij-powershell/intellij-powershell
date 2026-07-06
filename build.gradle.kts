@@ -73,7 +73,6 @@ dependencies {
     pluginVerifier()
   }
 
-  implementation(libs.bundles.junixsocket)
   implementation(libs.lsp4j)
   implementation(libs.lsp4jdebug)
   testImplementation("org.jetbrains.kotlin:kotlin-test-junit")

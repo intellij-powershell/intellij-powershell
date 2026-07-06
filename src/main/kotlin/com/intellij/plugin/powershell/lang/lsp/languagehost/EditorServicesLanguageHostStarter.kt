@@ -36,11 +36,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.future.await
 import kotlinx.coroutines.withContext
-import org.newsclub.net.unix.AFUNIXSocket
-import org.newsclub.net.unix.AFUNIXSocketAddress
 import java.io.*
 import java.net.Socket
+import java.net.UnixDomainSocketAddress
 import java.nio.channels.Channels
+import java.nio.channels.SocketChannel
 import java.nio.charset.Charset
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -131,11 +131,17 @@ open class EditorServicesLanguageHostStarter(protected val myProject: Project) :
             val outSf = BufferedOutputStream(Channels.newOutputStream(serverReadChannel))
             Pair(inSf, outSf)
           } else {
-            val readSock = AFUNIXSocket.newInstance()
-            val writeSock = AFUNIXSocket.newInstance()
-            readSock.connect(AFUNIXSocketAddress.of(File(readPipeName)))
-            writeSock.connect(AFUNIXSocketAddress.of(File(writePipeName)))
-            Pair(writeSock.inputStream, readSock.outputStream)
+            val readChannel = openUnixDomainSocket(readPipeName)
+            try {
+              val writeChannel = openUnixDomainSocket(writePipeName)
+              Pair(
+                Channels.newInputStream(writeChannel),
+                BufferedOutputStream(Channels.newOutputStream(readChannel))
+              )
+            } catch (e: Exception) {
+              readChannel.close()
+              throw e
+            }
           }
         }
       }
@@ -161,6 +167,23 @@ open class EditorServicesLanguageHostStarter(protected val myProject: Project) :
         }
       }
     }
+
+  private fun openUnixDomainSocket(socketPath: String): SocketChannel {
+    val path = File(socketPath).toPath()
+    val address = try {
+      UnixDomainSocketAddress.of(path)
+    } catch (e: UnsupportedOperationException) {
+      throw IOException("JDK Unix-domain sockets are not supported by this runtime environment.", e)
+    }
+
+    return try {
+      SocketChannel.open(address)
+    } catch (e: UnsupportedOperationException) {
+      throw IOException("JDK Unix-domain sockets are not supported by this runtime environment.", e)
+    } catch (e: Exception) {
+      throw IOException("Unable to connect to Unix-domain socket at $path.", e)
+    }
+  }
 
   /**
    * @throws PowerShellExtensionError

@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+### Changed
+- Migrate Unix socket transport from `com.kohlschutter.junixsocket` to JDK Unix-domain socket APIs.
+
 ## [2.11.0] - 2025-07-05
 ### Changed
 - **Requirement update:** IntelliJ Platform 252.23591.19 (2025.2 EAP) is now the minimal supported version.

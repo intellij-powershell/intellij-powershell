@@ -67,3 +67,11 @@ jobs:
           name: ${{ runner.os }}.test-logs
           path: .intellijPlatform/sandbox/*/*/log-test
         if: ${{ always() }}
+
+  licenses:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out the sources
+        uses: actions/checkout@v6
+      - name: REUSE license check
+        uses: fsfe/reuse-action@v6

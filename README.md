@@ -48,11 +48,27 @@ Documentation
 - [Contributor Guide][docs.contributing]
 - [Maintainership][docs.maintainership]
 
-[License][docs.license]
----------
-Copyright 2018 Andrey Dernov
+License
+-------
+The project is distributed under the terms of [the Apache 2.0 license][docs.license]
+(unless a particular file states otherwise).
 
-Copyright 2025 intellij-powershell contributors
+The license indication in the project's sources is compliant with the [REUSE specification v3.3][reuse.spec].
+
+<!-- REUSE-IgnoreStart -->
+<!--
+  Prepared with help of the PowerShell script, requires REUSE tool installation:
+
+  $licenses = reuse lint --json | ConvertFrom-Json
+  $licenses.files | % { $_.copyrights.value } | Select-Object -Unique
+-->
+
+Copyright holders:
+
+- 2018 Andrey Dernov
+- 2025 intellij-powershell contributors
+
+<!-- REUSE-IgnoreEnd -->
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -75,3 +91,4 @@ limitations under the License.
 [plugin-repository]: https://plugins.jetbrains.com/plugin/10249-powershell
 [powershell-editor-services]: https://github.com/PowerShell/PowerShellEditorServices
 [ps-script-analyzer]: https://github.com/PowerShell/PSScriptAnalyzer
+[reuse.spec]: https://reuse.software/spec-3.3/

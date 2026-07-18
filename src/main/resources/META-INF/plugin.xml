@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2017-2022 Andrey Dernov <https://github.com/ant-druha/>
+SPDX-FileCopyrightText: 2020-2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 <idea-plugin require-restart="true">
   <id>com.intellij.plugin.adernov.powershell</id>
   <name>PowerShell</name>

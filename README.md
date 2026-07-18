@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2018-2019 Andrey Dernov <https://github.com/ant-druha/>
+SPDX-FileCopyrightText: 2023-2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # intellij-powershell [![JetBrains Plugins][badge-plugins]][plugin-repository]
 Adds PowerShell language support to [IntelliJ-based](https://www.jetbrains.com/products.html?type=ide) IDEs.
 

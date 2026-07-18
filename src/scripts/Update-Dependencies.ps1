@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024-2025 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 <#
   .DESCRIPTION
     This script will update the PowerShell modules used by the plugin.

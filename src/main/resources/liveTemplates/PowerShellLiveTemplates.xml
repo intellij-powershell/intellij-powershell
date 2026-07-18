@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+SPDX-FileCopyrightText: 2017-2018 Andrey Dernov <https://github.com/ant-druha/>
+SPDX-FileCopyrightText: 2023 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 <templateSet group="PowerShell">
   <template name="sout" value="Write-Output $ARG$" description="Write object value to standard output" toReformat="true"
             toShortenFQNames="false">

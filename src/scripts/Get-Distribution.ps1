@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 <#
     .SYNOPSIS
         This script gets the distribution file available in the path passed to it.

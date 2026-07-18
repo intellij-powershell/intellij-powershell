@@ -1,6 +1,12 @@
-/**
- * adopted from https://github.com/gtache/intellij-lsp
+/*
+ * SPDX-FileCopyrightText: 2017 Guillaume Tâche
+ * SPDX-FileCopyrightText: 2017-2018 intellij-lsp contributors <https://github.com/gtache/intellij-lsp>
+ * SPDX-FileCopyrightText: 2018 Andrey Dernov <https://github.com/ant-druha/>
+ * SPDX-FileCopyrightText: 2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+ *
+ * SPDX-License-Identifier: Apache-2.0
  */
+
 package com.intellij.plugin.powershell.lang.lsp.util
 
 import com.intellij.openapi.diagnostic.Logger

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024-2025 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+//
+// SPDX-License-Identifier: Apache-2.0
+
 package com.intellij.plugin.powershell.lang
 
 import com.intellij.openapi.actionSystem.IdeActions

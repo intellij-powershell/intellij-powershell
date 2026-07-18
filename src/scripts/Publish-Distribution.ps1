@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023-2024 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 <#
   .SYNOPSIS
     This script publishes the plugin distribution from the $DistributionsLocation to the JetBrains Marketplace.

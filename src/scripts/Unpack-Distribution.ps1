@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 <#
     .SYNOPSIS
         The purpose of this script is to unpack the compressed plugin artifact.

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2018-2022 Andrey Dernov <https://github.com/ant-druha/>
+// SPDX-FileCopyrightText: 2023-2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+//
+// SPDX-License-Identifier: Apache-2.0
+
 package com.intellij.plugin.powershell.lang.lsp.languagehost
 
 import com.google.common.io.Files

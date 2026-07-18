@@ -1,0 +1,28 @@
+version = 1
+SPDX-PackageName = "intellij-powershell"
+SPDX-PackageSupplier = "intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>"
+SPDX-PackageDownloadLocation = "https://github.com/intellij-powershell/intellij-powershell"
+
+[[annotations]]
+path = [
+    "gradle/wrapper/gradle-wrapper.jar",
+    "gradle/wrapper/gradle-wrapper.properties"
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Gradle authors <https://gradle.org/>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ".idea/**/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2024-2026 Friedrich von Never <friedrich@fornever.me>"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "src/test/resources/testData/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = [
+    "2017-2020 Andrey Dernov <https://github.com/ant-druha/>",
+    "2019-2024 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>"
+]
+SPDX-License-Identifier = "Apache-2.0"

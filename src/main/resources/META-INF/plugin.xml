@@ -15,8 +15,8 @@ SPDX-License-Identifier: Apache-2.0
     <p><b>Plugin page:</b> <a href="https://plugins.jetbrains.com/plugin/10249">https://plugins.jetbrains.com/plugin/10249</a></p>
     <p>This plugin bundles the following third-party software:</p>
     <ul>
-      <li><a href="https://github.com/PowerShell/PowerShellEditorServices">PowerShell Editor Services</a>,</li>
-      <li><a href="https://github.com/PowerShell/PSScriptAnalyzer">PSScriptAnalyzer</a>.</li>
+      <li><a href="https://github.com/PowerShell/PowerShellEditorServices">PowerShell Editor Services</a> (MIT license),</li>
+      <li><a href="https://github.com/PowerShell/PSScriptAnalyzer">PSScriptAnalyzer</a> (MIT license).</li>
     </ul>
     <p>Copyright:</p>
     <ul>

@@ -7,6 +7,8 @@ SPDX-FileCopyrightText: 2023 intellij-powershell contributors <https://github.co
 SPDX-License-Identifier: Apache-2.0
 -->
 
+<!-- REUSE-IgnoreStart -->
+
 <templateSet group="PowerShell">
   <template name="sout" value="Write-Output $ARG$" description="Write object value to standard output" toReformat="true"
             toShortenFQNames="false">
@@ -207,3 +209,5 @@ SPDX-License-Identifier: Apache-2.0
     </context>
   </template>
 </templateSet>
+
+<!-- REUSE-IgnoreEnd -->

@@ -66,14 +66,17 @@ The license indication in the project's sources is compliant with the [REUSE spe
 <!--
   Prepared with help of the PowerShell script, requires REUSE tool installation:
 
-  $licenses = reuse lint --json | ConvertFrom-Json
-  $licenses.files | % { $_.copyrights.value } | Select-Object -Unique
+  ./src/scripts/Get-CopyrightStatements.ps1
 -->
 
-Copyright holders:
+Copyright:
 
-- 2018 Andrey Dernov
-- 2025 intellij-powershell contributors
+- 2015 Microsoft <https://www.microsoft.com/en-us/download/details.aspx?id=50395>
+- 2017-2022 Andrey Dernov <https://github.com/ant-druha/>
+- 2017 Guillaume Tâche
+- 2017-2018 intellij-lsp contributors <https://github.com/gtache/intellij-lsp>
+- 2019-2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+- 2024-2026 Friedrich von Never <friedrich@fornever.me>
 
 <!-- REUSE-IgnoreEnd -->
 

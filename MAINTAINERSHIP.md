@@ -12,7 +12,7 @@ Release
 
 To release a new version, follow these steps.
 
-1. Update the copyright year in the `README.md` file, if required.
+1. If required, update the copyright statements in the `README.md` and `plugin.xml` files, if required.
 2. Choose the new version. It should consist of three numbers (i.e. `1.0.0`).
 3. Change the version number in the `gradle.properties` (`pluginVersion=…`).
 4. Make sure there's a properly formed version entry in the `CHANGELOG.md`.

@@ -18,6 +18,15 @@ SPDX-License-Identifier: Apache-2.0
       <li><a href="https://github.com/PowerShell/PowerShellEditorServices">PowerShell Editor Services</a>,</li>
       <li><a href="https://github.com/PowerShell/PSScriptAnalyzer">PSScriptAnalyzer</a>.</li>
     </ul>
+    <p>Copyright:</p>
+    <ul>
+      <li>2015 Microsoft (https://www.microsoft.com/en-us/download/details.aspx?id=50395)</li>
+      <li>2017-2022 Andrey Dernov (https://github.com/ant-druha/)</li>
+      <li>2017 Guillaume Tâche</li>
+      <li>2017-2018 intellij-lsp contributors (https://github.com/gtache/intellij-lsp)</li>
+      <li>2019-2026 intellij-powershell contributors (https://github.com/intellij-powershell/intellij-powershell)</li>
+      <li>2024-2026 Friedrich von Never (friedrich@fornever.me)</li>
+    </ul>
     ]]></description>
 
   <depends>com.intellij.modules.platform</depends>

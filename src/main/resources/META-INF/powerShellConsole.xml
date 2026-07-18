@@ -1,13 +1,15 @@
 <!--
-SPDX-FileCopyrightText: 2018 Andrey Dernov <https://github.com/ant-druha/>
-
-SPDX-License-Identifier: Apache-2.0
--->
+  ~ SPDX-FileCopyrightText: 2018 Andrey Dernov <https://github.com/ant-druha/>
+  ~ SPDX-FileCopyrightText: 2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+  ~
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
 
 <idea-plugin>
-  <actions>
-    <action id="PowerShellConsoleAction" class="com.intellij.plugin.powershell.ide.actions.PowerShellConsoleAction"
-            text="PowerShell Console..." description="Starts PowerShell console">
+  <actions resource-bundle="messages.MessagesBundle">
+    <action id="PowerShellConsoleAction"
+            class="com.intellij.plugin.powershell.ide.actions.PowerShellConsoleAction"
+            icon="/icons/powershell_icon.png">
       <add-to-group group-id="ToolsMenu" anchor="last"/>
     </action>
   </actions>

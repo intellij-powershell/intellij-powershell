@@ -59,13 +59,13 @@ repositories {
   }
 }
 
-val psScriptAnalyzerVersion: String by project
-val psScriptAnalyzerSha256Hash: String by project
-val psScriptAnalyzer: Configuration by configurations.creating
+val psScriptAnalyzerVersion = project.property("psScriptAnalyzerVersion") as String
+val psScriptAnalyzerSha256Hash = project.property("psScriptAnalyzerSha256Hash") as String
+val psScriptAnalyzer = configurations.create("psScriptAnalyzer")
 
-val psesVersion: String by project
-val psesSha256Hash: String by project
-val powerShellEditorServices: Configuration by configurations.creating
+val psesVersion = project.property("psesVersion") as String
+val psesSha256Hash = project.property("psesSha256Hash") as String
+val powerShellEditorServices = configurations.create("powerShellEditorServices")
 
 dependencies {
   intellijPlatform {
@@ -121,7 +121,6 @@ intellijPlatform {
   }
 }
 
-@Suppress("UnstableApiUsage")
 configurations {
   runtimeClasspath {
     // NOTE: IntelliJ provides newer versions of these libraries, so let's exclude them from the dependency set of
@@ -226,8 +225,8 @@ tasks {
     unpackPowerShellEditorServices(outDir)
   }
 
-  val maxUnpackedPluginBytes: String by project
-  val verifyDistributionSize by registering {
+  val maxUnpackedPluginBytes = project.property("maxUnpackedPluginBytes") as String
+  val verifyDistributionSize = register("verifyDistributionSize") {
     description = "Verify that the resulting plugin artifact size is not unexpectedly large."
     group = "verification"
 

@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2017-2018 Andrey Dernov <https://github.com/ant-druha/>
-// SPDX-FileCopyrightText: 2023-2024 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+// SPDX-FileCopyrightText: 2023-2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
 //
 // SPDX-License-Identifier: Apache-2.0
 
@@ -379,6 +379,7 @@ class PowerShellLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsPro
   }
 
   override fun customizeDefaults(defaultSettings: CommonCodeStyleSettings, indentOptions: CommonCodeStyleSettings.IndentOptions) {
+    defaultSettings.LINE_COMMENT_AT_FIRST_COLUMN = false
     defaultSettings.KEEP_SIMPLE_LAMBDAS_IN_ONE_LINE = true
     defaultSettings.RIGHT_MARGIN = 115
     defaultSettings.SPACE_WITHIN_BRACES = true
@@ -409,6 +410,5 @@ class PowerShellLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsPro
   }
 
 }
-
 
 

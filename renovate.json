@@ -12,6 +12,14 @@
       "matchPackageNames": [
         "/org.jetbrains.kotlin.jvm/"
       ]
+    },
+    {
+      "enabled": false,
+      "description": "Custom Ivy dependencies are not published as Maven packages.",
+      "matchPackageNames": [
+        "PSScriptAnalyzer:PSScriptAnalyzer",
+        "PowerShellEditorServices:PowerShellEditorServices"
+      ]
     }
   ],
   "customManagers": [

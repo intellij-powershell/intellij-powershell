@@ -12,8 +12,12 @@ import com.intellij.psi.PsiElement
 
 class PowerShellRunLineMarkerContributor : RunLineMarkerContributor(), DumbAware {
   override fun getInfo(element: PsiElement): Info? {
+    if (element.textOffset != 0) return null
+
     val file = element.containingFile as? PowerShellFile ?: return null
-    if (!file.virtualFile?.extension.equals("ps1", ignoreCase = true) || element !== file.findElementAt(0)) return null
+    if (!file.virtualFile?.extension.equals("ps1", ignoreCase = true)) return null
+    if (element !== file.findElementAt(0)) return null
+
     return withExecutorActions(AllIcons.RunConfigurations.TestState.Run)
   }
 }

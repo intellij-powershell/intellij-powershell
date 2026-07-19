@@ -80,6 +80,8 @@ SPDX-License-Identifier: Apache-2.0
     <configurationType implementation="com.intellij.plugin.powershell.ide.run.PowerShellConfigurationType"/>
     <runConfigurationProducer
         implementation="com.intellij.plugin.powershell.ide.run.PowerShellConfigurationProducer" order="first"/>
+    <runLineMarkerContributor language="PowerShell"
+                              implementationClass="com.intellij.plugin.powershell.ide.run.PowerShellRunLineMarkerContributor"/>
 
     <xdebugger.breakpointType implementation="com.intellij.plugin.powershell.ide.debugger.PowerShellBreakpointType"/>
 

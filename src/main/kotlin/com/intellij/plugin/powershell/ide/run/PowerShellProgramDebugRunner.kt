@@ -1,6 +1,8 @@
-// SPDX-FileCopyrightText: 2023-2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
-//
-// SPDX-License-Identifier: Apache-2.0
+/*
+ * SPDX-FileCopyrightText: 2023-2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
 package com.intellij.plugin.powershell.ide.run
 
@@ -19,7 +21,6 @@ import com.intellij.openapi.application.EDT
 import com.intellij.openapi.diagnostic.logger
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.rd.util.toPromise
 import com.intellij.plugin.powershell.ide.MessagesBundle
 import com.intellij.plugin.powershell.ide.PluginProjectRoot
 import com.intellij.plugin.powershell.ide.debugger.EditorServicesDebuggerHostStarter
@@ -34,7 +35,6 @@ import com.intellij.xdebugger.breakpoints.XLineBreakpoint
 import com.jetbrains.rd.util.lifetime.Lifetime
 import com.jetbrains.rd.util.threading.coroutines.adviseSuspend
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
 import kotlinx.coroutines.future.await
 import kotlinx.coroutines.withContext
@@ -43,6 +43,7 @@ import org.eclipse.lsp4j.debug.launch.DSPLauncher
 import org.eclipse.lsp4j.debug.services.IDebugProtocolServer
 import org.eclipse.lsp4j.jsonrpc.Launcher
 import org.jetbrains.concurrency.Promise
+import org.jetbrains.concurrency.toPromise
 import java.nio.file.Path
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.io.path.Path
@@ -55,7 +56,6 @@ class PowerShellProgramDebugRunner : AsyncProgramRunner<RunnerSettings>() {
   override fun canRun(executorId: String, profile: RunProfile) =
     executorId == DefaultDebugExecutor.EXECUTOR_ID && profile is PowerShellRunConfiguration
 
-  @OptIn(ExperimentalCoroutinesApi::class)
   override fun execute(environment: ExecutionEnvironment, state: RunProfileState): Promise<RunContentDescriptor?> {
     val project = environment.project
 
@@ -141,7 +141,6 @@ suspend fun bootstrapDebugSession(
   }
 
   val (session, runContentDescriptor) =
-    @Suppress("UnstableApiUsage")
     withContext(Dispatchers.EDT) {
       val result = debuggerManager.newSessionBuilder(starter)
         .environment(environment)

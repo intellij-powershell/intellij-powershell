@@ -72,7 +72,10 @@ dependencies {
     intellijIdea(libs.versions.intellij) {
       useInstaller = !libs.versions.intellij.get().contains("SNAPSHOT")
     }
-    bundledPlugins("org.jetbrains.plugins.terminal")
+    bundledPlugins(
+      "intellij.structureView.plugin",
+      "org.jetbrains.plugins.terminal"
+    )
     bundledModule("intellij.platform.langInjection")
     testFramework(TestFrameworkType.Platform)
     testFramework(TestFrameworkType.JUnit5)

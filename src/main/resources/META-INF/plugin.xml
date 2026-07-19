@@ -1,9 +1,9 @@
 <!--
-SPDX-FileCopyrightText: 2017-2022 Andrey Dernov <https://github.com/ant-druha/>
-SPDX-FileCopyrightText: 2020-2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
-
-SPDX-License-Identifier: Apache-2.0
--->
+  ~ SPDX-FileCopyrightText: 2017-2022 Andrey Dernov <https://github.com/ant-druha/>
+  ~ SPDX-FileCopyrightText: 2020-2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+  ~
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
 
 <idea-plugin require-restart="true">
   <id>com.intellij.plugin.adernov.powershell</id>
@@ -33,6 +33,7 @@ SPDX-License-Identifier: Apache-2.0
   <depends>com.intellij.modules.lang</depends>
   <depends optional="true" config-file="injection.xml">org.intellij.intelliLang</depends>
   <depends optional="true" config-file="powerShellConsole.xml">org.jetbrains.plugins.terminal</depends>
+  <depends optional="true" config-file="structureView.xml">intellij.structureView.plugin</depends>
 
   <extensions defaultExtensionNs="com.intellij">
 
@@ -67,9 +68,6 @@ SPDX-License-Identifier: Apache-2.0
 
     <lang.findUsagesProvider language="PowerShell"
                              implementationClass="com.intellij.plugin.powershell.ide.search.PowerShellUsagesProvider"/>
-
-    <lang.psiStructureViewFactory language="PowerShell"
-                                  implementationClass="com.intellij.plugin.powershell.ide.structure.PowerShellStructureViewFactory"/>
 
     <lang.braceMatcher language="PowerShell"
                        implementationClass="com.intellij.plugin.powershell.ide.editor.highlighting.PowerShellPairedBraceMatcher"/>

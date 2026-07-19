@@ -78,7 +78,7 @@ class PowerShellJPanelComponent {
       !EditorServicesLanguageHostStarter.isUseBundledPowerShellExtension()
   }
 
-  fun getPowerShellExtensionPath(): String = psExtensionPathTextField.text.trim()
+  fun getPowerShellExtensionPath(): String = PSLanguageHostUtils.normalizePSExtensionPath(psExtensionPathTextField.text.trim())
 
   fun getPowerShellVersionValue(): String? = psExecutableChooserPanel.versionValue
 
@@ -105,7 +105,7 @@ class PowerShellJPanelComponent {
   }
 
   private fun createExtensionPathField(): TextFieldWithBrowseButton {
-    val descriptor = object : FileChooserDescriptor(false, true, false, false, false, false) {
+    val descriptor = object : FileChooserDescriptor(true, true, false, false, false, false) {
       override fun validateSelectedFiles(files: Array<out VirtualFile>) {
         if (files.isEmpty()) return
         val psEditorServicesPath = files[0].canonicalPath
@@ -113,8 +113,9 @@ class PowerShellJPanelComponent {
           setEditorServicesVersionLabelValue(null)
           return
         }
-        if (getPowerShellExtensionPath() == psEditorServicesPath) return
-        val psLanguageServerVersion = FormUIUtil.getEditorServicesVersion(psEditorServicesPath)
+        val normalizedPath = PSLanguageHostUtils.normalizePSExtensionPath(psEditorServicesPath)
+        if (getPowerShellExtensionPath() == normalizedPath) return
+        val psLanguageServerVersion = FormUIUtil.getEditorServicesVersion(normalizedPath)
         setEditorServicesVersionLabelValue(psLanguageServerVersion)
       }
     }

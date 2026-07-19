@@ -17,16 +17,52 @@ import kotlinx.coroutines.future.await
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.io.TempDir
 import java.nio.file.Path
 import kotlin.io.path.Path
+import kotlin.io.path.createDirectories
+import kotlin.io.path.createFile
 import kotlin.io.path.div
 import kotlin.io.path.exists
 import kotlin.io.path.pathString
+import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 import kotlin.test.fail
 
 @TestApplication
 class PSLanguageHostUtilsTests {
+
+  @Test
+  fun testNormalizePSExtensionPath(@TempDir tempDir: Path) {
+    val extensionRoot = (tempDir / "extension").createDirectories()
+    val moduleBase = (extensionRoot / "modules").createDirectories()
+    val moduleDirectory = (moduleBase / "PowerShellEditorServices").createDirectories()
+    val manifest = (moduleDirectory / "PowerShellEditorServices.psd1").createFile()
+    val startupScript = (moduleDirectory / "Start-EditorServices.ps1").createFile()
+    val directChild = (moduleDirectory / "Commands.ps1").createFile()
+
+    assertEquals(extensionRoot.pathString, PSLanguageHostUtils.normalizePSExtensionPath(extensionRoot.pathString))
+    assertEquals(moduleBase.pathString, PSLanguageHostUtils.normalizePSExtensionPath(moduleBase.pathString))
+    assertEquals(moduleBase.pathString, PSLanguageHostUtils.normalizePSExtensionPath(moduleDirectory.pathString))
+    assertEquals(moduleBase.pathString, PSLanguageHostUtils.normalizePSExtensionPath(manifest.pathString))
+    assertEquals(moduleBase.pathString, PSLanguageHostUtils.normalizePSExtensionPath(directChild.pathString))
+    assertEquals(moduleBase.pathString, PSLanguageHostUtils.getPSExtensionModulesDir(manifest.pathString))
+    assertEquals(startupScript.pathString, PSLanguageHostUtils.getEditorServicesStartupScript(directChild.pathString))
+  }
+
+  @Test
+  fun testNormalizePSExtensionPathLeavesInvalidBoundariesUnchanged(@TempDir tempDir: Path) {
+    val missing = tempDir / "missing"
+    val unrelatedFile = (tempDir / "unrelated.txt").createFile()
+    val moduleDirectory = (tempDir / "PowerShellEditorServices").createDirectories()
+    (moduleDirectory / "PowerShellEditorServices.psd1").createFile()
+    val nestedDirectory = (moduleDirectory / "nested").createDirectories()
+    val nestedFile = (nestedDirectory / "nested.ps1").createFile()
+
+    listOf("", " ", missing.pathString, unrelatedFile.pathString, nestedDirectory.pathString, nestedFile.pathString).forEach {
+      assertEquals(it, PSLanguageHostUtils.normalizePSExtensionPath(it))
+    }
+  }
 
   @Test
   fun testBundledEditorServicesModulesArePresent() {

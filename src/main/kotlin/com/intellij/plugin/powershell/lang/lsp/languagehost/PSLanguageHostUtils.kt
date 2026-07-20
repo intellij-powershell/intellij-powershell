@@ -40,7 +40,7 @@ object PSLanguageHostUtils {
     val normalizedDir = normalizePSExtensionPath(psExtensionDir)
     return when {
       isExtensionDirectoryFormat(normalizedDir) -> join(normalizedDir, "modules/PowerShellEditorServices/Start-EditorServices.ps1")
-      isStandAloneDirectoryFormat(normalizedDir) -> "$normalizedDir/PowerShellEditorServices/Start-EditorServices.ps1"
+      isStandAloneDirectoryFormat(normalizedDir) -> File(File(normalizedDir, "PowerShellEditorServices"), "Start-EditorServices.ps1").path
       else -> join(BUNDLED_PSES_PATH, "modules/PowerShellEditorServices/Start-EditorServices.ps1")
     }
   }

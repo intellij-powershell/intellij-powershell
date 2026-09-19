@@ -20,7 +20,7 @@ jobs:
     permissions:
       contents: write
 
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - name: Free disk space
         uses: jlumbroso/free-disk-space@v2.0.0

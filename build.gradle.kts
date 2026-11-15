@@ -76,7 +76,11 @@ dependencies {
       "intellij.structureView.plugin",
       "org.jetbrains.plugins.terminal"
     )
+    bundledModule("intellij.platform.debugger")
+    bundledModule("intellij.platform.debugger.impl")
     bundledModule("intellij.platform.langInjection")
+    testBundledModule("intellij.platform.debugger.impl.shared")
+    testBundledModule("intellij.platform.debugger.impl.ui")
     testFramework(TestFrameworkType.Platform)
     testFramework(TestFrameworkType.JUnit5)
     testFramework(TestFrameworkType.Plugin.Debugger)

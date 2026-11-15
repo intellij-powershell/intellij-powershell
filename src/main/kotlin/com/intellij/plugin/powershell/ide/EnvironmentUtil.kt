@@ -8,8 +8,6 @@ package com.intellij.plugin.powershell.ide
 
 import com.intellij.execution.configurations.PathEnvironmentVariableUtil
 import com.intellij.openapi.util.io.toNioPathOrNull
-import com.intellij.platform.eel.EelOsFamily
-import com.intellij.platform.eel.provider.getEelDescriptor
 import java.nio.file.Path
 import kotlin.io.path.exists
 
@@ -20,19 +18,12 @@ fun findExecutableInPath(pathOrFileNameOrBaseName: String): Path? {
     return if (path.exists()) path else null
   }
 
-  // Executable name with extension (Windows): find in PATH directly.
-  val exactFileNameInPath = PathEnvironmentVariableUtil.findInPath(pathOrFileNameOrBaseName)
-  if (exactFileNameInPath != null) {
-    return exactFileNameInPath.toPath()
+  // Only a bare file name or base name may be looked up in PATH.
+  if (pathOrFileNameOrBaseName.isBlank() || pathOrFileNameOrBaseName.any { it == '/' || it == '\\' }) {
+    return null
   }
 
-  // Windows, executable base name: find in PATH with executable extensions.
-  // See IJPL-250645 for details why we can't universally use PathEnvironmentVariableUtil.findExecutableInPathOnAnyOS.
+  // Finds either an exact file name, or (on Windows) a base name with any of the executable extensions.
   @Suppress("UnstableApiUsage")
-  if (path.getEelDescriptor().osFamily == EelOsFamily.Windows) {
-    return PathEnvironmentVariableUtil.findExecutableInWindowsPath(pathOrFileNameOrBaseName, null)?.toNioPathOrNull()
-  }
-
-  // At this point, we didn't find any executable.
-  return null
+  return PathEnvironmentVariableUtil.findFirst(pathOrFileNameOrBaseName)
 }

@@ -1,7 +1,9 @@
-// SPDX-FileCopyrightText: 2017-2018 Andrey Dernov <https://github.com/ant-druha/>
-// SPDX-FileCopyrightText: 2024 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
-//
-// SPDX-License-Identifier: Apache-2.0
+/*
+ * SPDX-FileCopyrightText: 2017-2018 Andrey Dernov <https://github.com/ant-druha/>
+ * SPDX-FileCopyrightText: 2024-2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
 package com.intellij.plugin.powershell.ide.editor.highlighting
 
@@ -13,7 +15,6 @@ import com.intellij.openapi.fileTypes.SyntaxHighlighterBase
 import com.intellij.plugin.powershell.lang.lexer.PowerShellLexerAdapter
 import com.intellij.plugin.powershell.psi.PowerShellTokenTypeSets
 import com.intellij.psi.tree.IElementType
-import java.util.*
 
 /**
  * Andrey 17/07/17.
@@ -53,7 +54,7 @@ class PowerShellSyntaxHighlighter : SyntaxHighlighterBase() {
     // val COMMAND_NAME_ATTR = createTextAttributesKey(POWER_SHELL_COMMAND_NAME, DefaultLanguageHighlighterColors.MARKUP_ATTRIBUTE)
   }
 
-  override fun getTokenHighlights(tokenType: IElementType?): Array<TextAttributesKey> {
+  override fun getTokenHighlights(tokenType: IElementType): Array<TextAttributesKey> {
     return pack(ATTRIBUTES[tokenType])
   }
 

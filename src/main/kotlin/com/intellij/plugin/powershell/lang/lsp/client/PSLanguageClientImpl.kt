@@ -1,23 +1,24 @@
-// SPDX-FileCopyrightText: 2017 Guillaume Tâche
-// SPDX-FileCopyrightText: 2017-2018 intellij-lsp contributors <https://github.com/gtache/intellij-lsp>
-// SPDX-FileCopyrightText: 2018 Andrey Dernov <https://github.com/ant-druha/>
-// SPDX-FileCopyrightText: 2023-2024 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
-//
-// SPDX-License-Identifier: Apache-2.0
+/*
+ * SPDX-FileCopyrightText: 2017 Guillaume Tâche
+ * SPDX-FileCopyrightText: 2017-2018 intellij-lsp contributors <https://github.com/gtache/intellij-lsp>
+ * SPDX-FileCopyrightText: 2018 Andrey Dernov <https://github.com/ant-druha/>
+ * SPDX-FileCopyrightText: 2023-2026 intellij-powershell contributors <https://github.com/intellij-powershell/intellij-powershell>
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
 package com.intellij.plugin.powershell.lang.lsp.client
 
 import com.google.gson.JsonObject
-import com.intellij.openapi.application.ModalityState
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.fileEditor.FileEditorManager
+import com.intellij.openapi.fileEditor.FileEditorOpenRequest
 import com.intellij.openapi.fileEditor.OpenFileDescriptor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.plugin.powershell.lang.lsp.ide.EditorEventManager
 import com.intellij.plugin.powershell.lang.lsp.languagehost.LanguageServerEndpoint
 import com.intellij.plugin.powershell.lang.lsp.util.getTextEditor
-import com.intellij.util.ModalityUiUtil
 import org.eclipse.lsp4j.*
 import org.eclipse.lsp4j.jsonrpc.CompletableFutures
 import org.eclipse.lsp4j.jsonrpc.Endpoint
@@ -57,7 +58,8 @@ class PSLanguageClientImpl(private val project: Project) : LanguageClient, Endpo
         return@computeAsync unsupported
       }
       val descriptor = OpenFileDescriptor(project, vFile, 0)
-      ModalityUiUtil.invokeLaterIfNeeded(ModalityState.nonModal()) { FileEditorManager.getInstance(project).openTextEditor(descriptor, true) }
+      @Suppress("UnstableApiUsage")
+      FileEditorManager.getInstance(project).requestOpenTextEditor(descriptor, FileEditorOpenRequest.withFocus(true))
       return@computeAsync ok
     }
   }

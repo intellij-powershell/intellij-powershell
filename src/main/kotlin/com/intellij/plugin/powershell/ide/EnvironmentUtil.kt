@@ -27,3 +27,8 @@ fun findExecutableInPath(pathOrFileNameOrBaseName: String): Path? {
   @Suppress("UnstableApiUsage")
   return PathEnvironmentVariableUtil.findFirst(pathOrFileNameOrBaseName)
 }
+
+fun resolveExecutablePath(pathOrFileNameOrBaseName: String): String {
+  val executable = findExecutableInPath(pathOrFileNameOrBaseName) ?: return pathOrFileNameOrBaseName
+  return runCatching { executable.toRealPath().toString() }.getOrDefault(executable.toString())
+}
